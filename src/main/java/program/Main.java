@@ -62,22 +62,23 @@ public class Main {
         }
     }
 
-    //Метод вводу User і Role
+    // 3.8 Метод вводу User і Role
     private static void AddUserAndRoles(){
-        try(Session context = HiberContext.getSessionFactory().openSession()){
+        try(Session context = HiberContext.getSessionFactory().openSession()){ // Підключаємось до БД)
             Transaction tx = context.beginTransaction();                   // Оголошуємо тип транзакції
-            Role role = new Role();                                        // Створюємо нове питання
-            role.setName("Мурчик");                                        // Ввід тексту нового питання          q.setQuestionType(type);                                            // Варіант відповіді
-            context.save(role);                                            // Збереження нового питання
-            User user= new User("Іван", "Бомбардір","ivan@gmail.com","+380968763786","23456");
-            context.save(user);
-            UserRole ur= new UserRole();
+            Role role = new Role();                                        // Створюємо нову роль
+            role.setName("Мурчик");                                        // Ввід тексту нову роль
+            context.save(role);                                            // Збереження нової ролі
+            User user= new User("Іван", "Бомбардір","ivan@gmail.com",
+                    "+380968763786","23456");                // Створюємо нового користувача
+            context.save(user);                                             // Збереження нового користувача
+            UserRole ur= new UserRole();                                    // Створюємо нової асоціації (співвідношення) користувача і його ролі (доступу)
             ur.setRole(role);
             ur.setUser(user);
-            context.save(ur);
-            tx.commit();                                                        // Проводим транзакцію, фіксуємо зміни
-            //context.close();                                                  // Закриваємо з'єднання з БД (може автоматично?)
-        }   // Підключаємось до БД)
+            context.save(ur);                                               // Зберігаємо нову асоціацію користувача і його ролі
+            tx.commit();                                                    // Проводим транзакцію, фіксуємо зміни
+            //context.close();                                              // Закриваємо з'єднання з БД (може автоматично?)
+        }
     }
 
 

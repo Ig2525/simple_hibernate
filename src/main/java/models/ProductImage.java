@@ -6,7 +6,7 @@ import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
-
+// 3.13 Створюємо таблицю з фотографіями продуктів
 @Data
 @Entity
 @Table(name = "tbl_product_images")
@@ -21,7 +21,7 @@ public class ProductImage {
     private  String name;
     private  int priority;
     @ManyToOne
-    @JoinColumn(name = "product_id", nullable = false)
+    @JoinColumn(name = "product_id", nullable = false) // Відношення фото до певного продукту
     private  Product product;
 
     public ProductImage(Date dateCreated, boolean isDelete, String name, int priority, Product product) {

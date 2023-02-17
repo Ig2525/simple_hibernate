@@ -12,6 +12,9 @@ public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY) //Автоінкремент по ключу коли додається новий запис
     private int id;
+    //protected boolean isDelete;
+    // @Temporal(TemporalType.TIMESTAMP)
+    //protected Date dateCreated;
     @Column(length = 100,nullable = false)
     private String firstName;
     @Column(length = 100,nullable = false)
@@ -23,15 +26,16 @@ public class User {
     @Column(length = 100,nullable = false)
     private String password;
 
-    @OneToMany(mappedBy = "user")
+    @OneToMany(mappedBy = "user")           // 3.3 Прив'язка "один до багатьох" до масиву значень можливих ролей користувача колонка "user" в таблиці "tbl_user_roles" класу "UserRoles"
     private List<UserRole> userRoles;
-
     public User() {
-        userRoles=new ArrayList<>();
+        userRoles=new ArrayList<>();        // 3.4 Створюємо конструктор з списком, який буде визиватись командою super(); в основному конструкторі
     }
 
     public User(String firstName, String lastName, String email, String phone, String password) {
-        super();
+        super();                            // 3.5 Визиває конструктор по замовчуванню і проініціалізує змінну userRoles
+        //this.dateCreated=dateCrete;
+        //this.isDelete=isDelete;
         this.firstName = firstName;
         this.lastName = lastName;
         this.email = email;
@@ -39,32 +43,3 @@ public class User {
         this.password = password;
     }
 }
-
-
-
-/*
-package models;
-
-import enums.QuestionType;
-import lombok.Data;
-import java.util.List;
-import javax.persistence.*;
-
-@Data
-@Entity
-@Table(name="tbl_question")                                 //Назва таблиці, яка створиться в БД
-public class Question {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)     //Автоінкремент по ключу коли додається новий запис
-    private int id;
-    @Column(name="text", nullable = false, length = 500)    //Настройки для колонки таблиці
-    private String text;
-
-    @Enumerated(EnumType.STRING)
-    @Column(name="question_type")
-    private QuestionType questionType;
-
-    @OneToMany(mappedBy = "question", cascade = CascadeType.ALL, orphanRemoval = true)  //Привя'зка відповідей до своїх питань
-    private List<QuestionItem> questionItems;
-}
-* */
