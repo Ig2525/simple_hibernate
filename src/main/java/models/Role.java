@@ -24,4 +24,5 @@ public class Role {
     public Role() {
         userRoles=new ArrayList<>(); // 3.7 Створюємо конструктор з списком
     }
+
 }

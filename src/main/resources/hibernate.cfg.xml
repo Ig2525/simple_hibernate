@@ -18,7 +18,7 @@
         <property name="show_sql">true</property>                                           <!-- Show SQL in console -->
         <!--<property name="hbm2ddl.auto">create</property> -->                           <!-- create / create-drop /update -->
         <!--<property name="hbm2ddl.auto">update</property> -->                           <!-- create / create-drop /update -->
-        <property name="hbm2ddl.auto">create</property>                            <!-- create / create-drop /update -->
+        <property name="hbm2ddl.auto">update</property>                            <!-- create / create-drop /update -->
 
     </session-factory>
 

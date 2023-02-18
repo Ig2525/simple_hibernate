@@ -23,6 +23,14 @@ public class HiberContext {
             configuration.addAnnotatedClass(Category.class);    // Добавляємо клас Category в анотацію для її створення в БД
             configuration.addAnnotatedClass(Product.class);     // Добавляємо клас Product в анотацію для її створення в БД
             configuration.addAnnotatedClass(ProductImage.class);    // Добавляємо клас ProductImage в анотацію для її створення в БД
+            configuration.addAnnotatedClass(FilterNames.class);    // Добавляємо клас ProductImage в анотацію для її створення в БД
+            configuration.addAnnotatedClass(FilterValues.class);    // Добавляємо клас ProductImage в анотацію для її створення в БД
+            configuration.addAnnotatedClass(Filters.class);    // Добавляємо клас ProductImage в анотацію для її створення в БД
+            configuration.addAnnotatedClass(FilterNameGroups.class);    // Добавляємо клас ProductImage в анотацію для її створення в БД
+            configuration.addAnnotatedClass(Baskets.class);    // Добавляємо клас ProductImage в анотацію для її створення в БД
+            configuration.addAnnotatedClass(Orders.class);    // Добавляємо клас ProductImage в анотацію для її створення в БД
+            configuration.addAnnotatedClass(OrderItems.class);    // Добавляємо клас ProductImage в анотацію для її створення в БД
+            configuration.addAnnotatedClass(OrderStatuses.class);    // Добавляємо клас ProductImage в анотацію для її створення в БД
 
             //Реєструємо сервіс на основі нашого конфіга
             StandardServiceRegistryBuilder builder= new StandardServiceRegistryBuilder()
